@@ -3,33 +3,28 @@ package com.example;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class LionSexTest {
-    private final String sex;
-    private final boolean hasMane;
 
-    public LionSexTest(String sex, boolean hasMane) {
+    private final String sex;
+    Feline feline;
+
+    public LionSexTest(String sex) {
         this.sex = sex;
-        this.hasMane = hasMane;
     }
 
     // Тестовые данные
     @Parameterized.Parameters
-    public static Collection<Object[]> getDataForMane() {
-        return Arrays.asList(new Object[][]{
-                {"Самец", true},
-                {"Самка", false}
-        });
+    public static Object[] getDataForMane() {
+        return new Object[]{
+                "Лев",
+                "Львица"
+        };
     }
 
     @Test(expected = Exception.class)
     public void unknownSexReturnException() throws Exception {
-        Feline feline = Mockito.mock(Feline.class);
-        Lion unknownSexLion = new Lion("Неизвестно", feline);
+        new Lion(sex, feline);
     }
 }
