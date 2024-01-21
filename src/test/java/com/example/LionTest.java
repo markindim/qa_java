@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class LionTest {
@@ -52,7 +53,7 @@ public class LionTest {
     @Test
     public void testDoesHaveMane() throws Exception {
         Lion lion = new Lion(sex, feline);
-        assertEquals("Результат не совпадает", hasMane, lion.doesHaveMane());
+        assertTrue("Результат не совпадает", hasMane == lion.doesHaveMane());
     }
 
     @Test
