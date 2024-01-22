@@ -53,7 +53,7 @@ public class LionTest {
     @Test
     public void testDoesHaveMane() throws Exception {
         Lion lion = new Lion(sex, feline);
-        assertTrue("Результат не совпадает", hasMane == lion.doesHaveMane());
+        assertEquals("Результат не совпадает", hasMane, lion.doesHaveMane());
     }
 
     @Test
